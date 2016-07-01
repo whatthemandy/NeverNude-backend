@@ -1,6 +1,6 @@
 class SecretController < ApplicationController
   def secret
     puts params.inspect
-    render json: { {} }
+    render inline: {}.to_json
   end
 end
