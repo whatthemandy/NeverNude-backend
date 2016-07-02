@@ -1,4 +1,4 @@
-class SecretController < ApplicationController::Base
+class SecretController < ApplicationController
   def secret
   end
 end
