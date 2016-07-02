@@ -1,9 +1,24 @@
-# Team NeverEverNude
+# Team NeverNude
 
-Mandy McDorman
-Maeve Tierney
-Jesse Kinser
 Danny Pham
 
-# nevernude-backend
-final projects
+Jesse Kinser
+
+Maeve Tierney
+
+Mandy McDorman
+
+
+## nevernude-backend
+
+DBC final project!
+
+
+## Heroku
+
+
+
+
+## Trello
+
+https://trello.com/b/w5BFEaWG/nevernude
