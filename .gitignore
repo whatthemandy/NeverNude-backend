@@ -30,6 +30,8 @@
 # Used by dotenv library to load environment variables.
 .env
 
+# Ignore schema file
+db/schema.rb
 
 ## Specific to RubyMotion:
 .dat*
