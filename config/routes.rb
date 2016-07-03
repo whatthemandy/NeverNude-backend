@@ -5,8 +5,8 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   get 'secret' => 'secret#secret' #secret path
 
-  resources :section, except: [:new, :edit] do
-    resources :item, except: [:new, :edit]
+  resources :section, only: [:index] do
+    resources :item, except: [:new, :edit, :update]
   end
 
 end

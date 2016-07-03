@@ -8,5 +8,5 @@ class Item < ApplicationRecord
 
   validates :user_id, :section_id, presence: true
   validates_attachment_presence :image
-  validates_attachment_content_type :image, :content_type => ["image/jpg", "image/png"]
+  validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
 end
