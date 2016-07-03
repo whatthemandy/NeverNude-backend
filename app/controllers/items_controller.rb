@@ -17,7 +17,7 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:section][:item])
-    response.headers['image_path'] = "#{@item.image.url(:thumb)}"
+    response.headers['image_path'] = "#{@item.image.url}"
   end
 
   def destroy
