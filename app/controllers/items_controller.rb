@@ -6,6 +6,7 @@ class ItemsController < ApplicationController
       format.html # index.html.erb
       format.xml { render xml: @items }
       format.json { render json: @items }
+    end
   end
 
   def create
