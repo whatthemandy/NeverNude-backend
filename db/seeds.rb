@@ -7,9 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 # Create users
-
 test_user = User.create(first_name: 'testing', last_name: 'tester', email: 'test@test.com', password: 'password')
-danny = User.create(first_name: 'danny', last_name: 'pham', email: 'dannynpham@csu.fullerton.edu', password: 'password')
 
 # Create sections
 accessory = Section.create(name: "Accessory")
@@ -18,11 +16,11 @@ bottom = Section.create(name: "Bottom")
 feet = Section.create(name: "Feet")
 
 # Create items
-hat = Item.create(user: test_user, section: accessory, image: File.open('/images/item-hat.jpg'))
-shirt = Item.create(user: test_user, section: top, image: File.open('/images/item-shirt.jpg'))
-shorts = Item.create(user: test_user, section: bottom, image: File.open('/images/item-shorts.jpg'))
-shoes = Item.create(user: test_user, section: feet, image: File.open('/images/item-shoes.jpg'))
-watch = Item.create(user: test_user, section: accessory, image: File.open('/images/item-watch.jpg'))
-dress = Item.create(user: test_user, section: top, image: File.open('/images/item-dress.jpg'))
-leggings = Item.create(user: test_user, section: bottom, image: File.open('/images/item-leggings.jpg'))
-heels = Item.create(user: test_user, section: feet, image: File.open('/images/item-shoes.jpg'))
+hat = Item.create(user: test_user, section: accessory, image: open('http://i.imgur.com/l4xkojL.jpg'))
+shirt = Item.create(user: test_user, section: top, image: open('http://i.imgur.com/g5uUVcf.jpg'))
+shorts = Item.create(user: test_user, section: bottom, image: open('http://i.imgur.com/DLOk5Ox.jpg'))
+shoes = Item.create(user: test_user, section: feet, image: open('http://i.imgur.com/QdDnukb.jpg'))
+watch = Item.create(user: test_user, section: accessory, image: open('http://i.imgur.com/F5JJz4A.jpg'))
+dress = Item.create(user: test_user, section: top, image: open('http://i.imgur.com/phSBuTI.jpg'))
+leggings = Item.create(user: test_user, section: bottom, image: open('http://i.imgur.com/kbIaSZe.jpg'))
+heels = Item.create(user: test_user, section: feet, image: open('http://i.imgur.com/n1QSuJI.jpg'))
