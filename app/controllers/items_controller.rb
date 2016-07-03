@@ -3,6 +3,7 @@ class ItemsController < ApplicationController
   def index
     @section = Section.find(params[:section_id])
     @items = @section.items
+    response.headers['image_path'] = "#{@items.image.url}"
     render json: @items
   end
 
@@ -17,7 +18,6 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:section][:item])
-    response.headers['image_path'] = "#{@item.image.url}"
   end
 
   def destroy
