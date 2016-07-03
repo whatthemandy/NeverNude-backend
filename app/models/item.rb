@@ -5,7 +5,8 @@ class Item < ApplicationRecord
     :styles => {
       :thumb => "100x100#",
       :small  => "150x150>",
-      :medium => "200x200" },
+      :medium => "300x300",
+      :large => "600x600" },
     storage: :s3,
     s3_credentials: {access_key_id: ENV["AWS_KEY"], secret_access_key: ENV["AWS_SECRET"]},
     bucket: "neverevernude"
