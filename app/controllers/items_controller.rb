@@ -5,7 +5,7 @@ class ItemsController < ApplicationController
     @items = @section.items
 
     image_urls = [];
-    @items.each{|item| image_urls << item.image.url{:medium} }
+    @items.each{|item| image_urls << item.image.url(:medium) }
     # response.headers['image_path'] = "#{@items[0].image.url(:medium)}"
     render json: { items: @items, image_urls: image_urls }
   end
