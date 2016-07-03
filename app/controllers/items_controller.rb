@@ -7,7 +7,7 @@ class ItemsController < ApplicationController
     image_urls = [];
     @items.each{|item| image_urls << item.image.url{:medium} }
     # response.headers['image_path'] = "#{@items[0].image.url(:medium)}"
-    render json: @items, image_urls: image_urls
+    render json: { items: @items, image_urls: image_urls }
   end
 
   def create
