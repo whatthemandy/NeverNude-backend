@@ -7,8 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 # Create users
-User.create(first_name: 'testing', last_name: 'tester', email: 'test@test.com', password: 'password')
-User.create(first_name: 'danny', last_name: 'pham', email: 'dannynpham@csu.fullerton.edu', password: 'password')
+# User.create(first_name: 'testing', last_name: 'tester', email: 'test@test.com', password: 'password')
+# User.create(first_name: 'danny', last_name: 'pham', email: 'dannynpham@csu.fullerton.edu', password: 'password')
 
 # Create sections
 accessory = Section.create(name: "Accessory")
