@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
 
+
   def index
     @section = Section.find(params[:section_id])
     @items = @section.items
