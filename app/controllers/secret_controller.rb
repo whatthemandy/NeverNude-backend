@@ -1,5 +1,4 @@
-class SecretController < ApplicationController
+class SecretController < ActionController::Base
   def secret
-    render 'secret/secret'
   end
 end
