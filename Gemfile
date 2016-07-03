@@ -10,7 +10,7 @@ gem 'devise_token_auth', github:"lynndylanhurley/devise_token_auth", branch: "ma
 gem 'omniauth'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
-gem 'paperclip'
+gem "paperclip", "~> 5.0.0"
 gem 'aws-sdk', '~> 2.3'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 # gem 'jbuilder', '~> 2.5'
