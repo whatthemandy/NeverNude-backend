@@ -1,11 +1,9 @@
 class ItemsController < ApplicationController
 
   def index
-    @items = Item.all
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml { render xml: @items }
-      format.json { render json: @items }
+    @section = Section.find(params[:section_id])
+    @items = @section.items
+    render json: @items
   end
 
   def create

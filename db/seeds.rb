@@ -11,7 +11,7 @@ User.create(first_name: 'testing', last_name: 'tester', email: 'test@test.com', 
 User.create(first_name: 'danny', last_name: 'pham', email: 'dannynpham@csu.fullerton.edu', password: 'password')
 
 # Create sections
-head = Section.create(name: "Head")
+accessory = Section.create(name: "Accessory")
 top = Section.create(name: "Top")
 bottom = Section.create(name: "Bottom")
 feet = Section.create(name: "Feet")
