@@ -33,6 +33,9 @@
 # Ignore schema file
 db/schema.rb
 
+# Ignore .DS_Store
+.DS_Store
+
 ## Specific to RubyMotion:
 .dat*
 .repl_history
