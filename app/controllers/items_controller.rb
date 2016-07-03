@@ -2,13 +2,19 @@ class ItemsController < ApplicationController
 
   def index
     @items = Item.all
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml { render xml: @items }
+      format.json { render json: @items }
   end
 
   def create
-    @item = Item.create(item_params)
-    # if item.save
-    # else
-    # end
+    @item = Item.new(item_params)
+    if @item.save
+      render json: @item
+    else
+      # ?
+    end
   end
 
   def show
