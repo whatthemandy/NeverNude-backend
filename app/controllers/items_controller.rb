@@ -14,12 +14,15 @@ class ItemsController < ApplicationController
     if @item.save
       render json: @item
     else
-      # ?
+      # render error?
     end
   end
 
   def show
     @item = Item.find(params[:section][:item])
+    thumb_image_url = @item.image.url(:thumb)
+    med_image_url = @item.image.url(:medium)
+    render json: { item: @item, thumb_image_url: thumb_image_url, med_image_url: med_image_url }
   end
 
   def destroy
