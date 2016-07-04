@@ -1,6 +1,9 @@
 class Item < ApplicationRecord
   belongs_to :user
   belongs_to :section
+
+  has_many   :outfits_items
+  has_many   :outfits, through: :outfits_items
   has_attached_file :image,
     :styles => {
       :thumb => "100x75#",
