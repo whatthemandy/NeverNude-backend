@@ -1,14 +1,12 @@
 class ItemsController < ApplicationController
 
-
   def index
     @section = Section.find(params[:section_id])
     @items = @section.items
-
-    image_urls = [];
-    @items.each{|item| image_urls << item.image.url(:medium) }
-    # response.headers['image_path'] = "#{@items[0].image.url(:medium)}"
-    render json: { items: @items, image_urls: image_urls }
+    thumb_image_urls = @items.map { |item| item.image.url(:thumb) }
+    med_image_urls = @items.map { |item| item.image.url(:medium) }
+    # response.headers['image_path'] = "#{@items[0].image.url(:thumb)}"
+    render json: { items: @items, thumb_image_urls: thumb_image_urls, med_image_urls: med_image_urls }
   end
 
   def create
@@ -16,12 +14,15 @@ class ItemsController < ApplicationController
     if @item.save
       render json: @item
     else
-      # ?
+      # render error?
     end
   end
 
   def show
     @item = Item.find(params[:section][:item])
+    thumb_image_url = @item.image.url(:thumb)
+    med_image_url = @item.image.url(:medium)
+    render json: { item: @item, thumb_image_url: thumb_image_url, med_image_url: med_image_url }
   end
 
   def destroy
