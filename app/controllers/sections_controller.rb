@@ -1,5 +1,5 @@
 class SectionsController < ApplicationController
-  # skip_before_action :verify_authenticity_token
+  # before_action :authenticate_user!
 
   def index
     @sections = Section.all
