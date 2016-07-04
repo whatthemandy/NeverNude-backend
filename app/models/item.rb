@@ -4,6 +4,9 @@ class Item < ApplicationRecord
 
   has_many   :outfits_items
   has_many   :outfits, through: :outfits_items
+  has_many   :tags_items
+  has_many   :tags, through: :tags_items
+
   has_attached_file :image,
     :styles => {
       :thumb => "100x75#",
