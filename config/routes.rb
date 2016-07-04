@@ -11,4 +11,6 @@ Rails.application.routes.draw do
     resources :items, except: [:edit, :update]
   end
 
+  resources :outfits, except: [:new, :edit]
+
 end
