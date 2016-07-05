@@ -1,16 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-
-User.delete_all
-Section.delete_all
-Outfit.delete_all
-OutfitsItem.delete_all
-
 # Create users
 test_user = User.create(first_name: 'testing', last_name: 'tester', email: 'test@test.com', password: 'password')
 
@@ -44,3 +31,22 @@ OutfitsItem.create(outfit: outfit_two, item: watch)
 OutfitsItem.create(outfit: outfit_two, item: dress)
 OutfitsItem.create(outfit: outfit_two, item: leggings)
 OutfitsItem.create(outfit: outfit_two, item: heels)
+
+# Create tags
+fancy = Tag.create(user: test_user, name: "Fancy")
+comfy = Tag.create(user: test_user, name: "Comfy")
+work = Tag.create(user: test_user, name: "Work")
+
+# Add tags to items
+TagsItem.create(tag: fancy, item: heels)
+TagsItem.create(tag: fancy, item: dress)
+TagsItem.create(tag: fancy, item: watch)
+
+TagsItem.create(tag: comfy, item: shirt)
+TagsItem.create(tag: comfy, item: shorts)
+TagsItem.create(tag: comfy, item: hat)
+TagsItem.create(tag: comfy, item: shoes)
+
+TagsItem.create(tag: work, item: dress)
+TagsItem.create(tag: work, item: leggings)
+TagsItem.create(tag: work, item: watch)
