@@ -18,16 +18,18 @@ class ItemsController < ApplicationController
     end
   end
 
-  def show
-    @item = Item.find(params[:section][:item])
-    thumb_image_url = @item.image.url(:thumb)
-    med_image_url = @item.image.url(:medium)
-    render json: { item: @item, thumb_image_url: thumb_image_url, med_image_url: med_image_url }
-  end
+  # def show
+  #   @item = Item.find(params[:id])
+  #   tags = @item.tags.map { |tag| tag.name }
+  #   thumb_image_url = @item.image.url(:thumb)
+  #   med_image_url = @item.image.url(:medium)
+  #   render json: { item: @item, thumb_image_url: thumb_image_url, med_image_url: med_image_url, tags: tags }
+  # end
 
   def destroy
     item = Item.find(params[:section][:item])
     item.destroy
+    item.delete_associated_outfits_and_tags
   end
 
   private
