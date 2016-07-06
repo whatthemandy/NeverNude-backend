@@ -28,7 +28,7 @@ class ItemsController < ApplicationController
 
   def destroy
     puts params.inspect
-    item = Item.find(params[:section][:item])
+    item = Item.find(params[:item])
     puts item.insepct
     item.destroy
     item.delete_associated_outfits_and_tags
