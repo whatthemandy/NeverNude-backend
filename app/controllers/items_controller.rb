@@ -30,6 +30,7 @@ class ItemsController < ApplicationController
     item = Item.find(params[:section][:item])
     item.destroy
     item.delete_associated_outfits_and_tags
+    render nothing: true, status: 200
   end
 
   private
