@@ -42,8 +42,8 @@ class OutfitsController < ApplicationController
   private
 
   def outfit_params
-    # params.require(:outfit).permit(:user_id)
-    outfit_params.fetch(:outfit, {}).permit!
+    params.require(:outfit).permit!
+    # outfit_params.fetch(:outfit, {}).permit!
   end
 
   # def outfits_item_params
