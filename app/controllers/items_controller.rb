@@ -12,16 +12,15 @@ class ItemsController < ApplicationController
   end
 
   def create
-    item = Item.create!(item_params)
-    render json: item, status: 201
-    # puts "\n\n\n\n\n\n\n #{item_params.to_h} \n\n\n\n\n\n"
+    puts "\n\n\n\n\n\n\n #{item_params.to_h} \n\n\n\n\n\n"
+
     # @item = Item.new(item_params)
-    # if @item.save
-    #   render json: @item
-    # else
-    #   @item.errors.full_messages << "Please try again."
-    #   render json: @item.errors.full_messages, status: 422
-    # end
+    if @item.save
+      render json: @item, status: 201
+    else
+      @item.errors.full_messages << "Please try again."
+      render json: @item.errors.full_messages, status: 422
+    end
   end
 
   # def show
