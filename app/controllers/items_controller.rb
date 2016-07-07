@@ -12,6 +12,7 @@ class ItemsController < ApplicationController
   end
 
   def create
+    puts "#{item_params}"
     @item = Item.build(item_params)
     if @item.save
       render json: @item
