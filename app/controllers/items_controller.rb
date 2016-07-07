@@ -4,9 +4,11 @@ class ItemsController < ApplicationController
     @section = Section.find(params[:section_id])
     @items = @section.items
     thumb_image_urls = @items.map { |item| item.image.url(:thumb) }
+    sm_image_urls = @items.map { |item| item.image.url(:small) }
     med_image_urls = @items.map { |item| item.image.url(:medium) }
+    lrg_image_urls = @items.map { |item| item.image.url(:large) }
     # response.headers['image_path'] = "#{@items[0].image.url(:thumb)}"
-    render json: { items: @items, thumb_image_urls: thumb_image_urls, med_image_urls: med_image_urls }
+    render json: { items: @items, thumb_image_urls: thumb_image_urls, sm_image_urls: sm_image_urls, med_image_urls: med_image_urls, lrg_image_urls: lrg_image_urls }
   end
 
   def create
@@ -14,7 +16,8 @@ class ItemsController < ApplicationController
     if @item.save
       render json: @item
     else
-      # render error?
+      @item.errors.full_messages << "Please try again."
+      render json: @item.errors.full_messages, status: 422
     end
   end
 

@@ -13,11 +13,12 @@ class TagsController < ApplicationController
     # TagsItem.create(tag: tag, item_id: params[])
     # TagsItem.create(tag: tag, item_id: params[])
 
-    # if @tag.save
-    #   render json: @tag
-    # else
-    #   # render error?
-    # end
+    if @tag.save
+      render json: @tag
+    else
+      @tag.errors.full_messages << "Please try again."
+      render json: @tag.errors.full_messages, status: 422
+    end
   end
 
   def show

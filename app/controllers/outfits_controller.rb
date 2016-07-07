@@ -15,11 +15,12 @@ class OutfitsController < ApplicationController
     # OutfitsItem.create(outfit: outfit, item_id: params[])
     # OutfitsItem.create(outfit: outfit, item_id: params[])
 
-    # if @outfit.save
-    #   render json: @outfit
-    # else
-    #   # render error?
-    # end
+    if outfit.save
+      render json: outfit
+    else
+      outfit.errors.full_messages << "Please try again."
+      render json: outfit.errors.full_messages, status: 422
+    end
   end
 
   def show
