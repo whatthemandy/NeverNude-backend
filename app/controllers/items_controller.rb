@@ -25,7 +25,7 @@ class ItemsController < ApplicationController
   end
 
   def test
-    puts '\n\n\n\n\n\n\n\n #{item_params} \n\n\n\n\n\n\n\n\n'
+    puts "\n\n\n\n\n\n\n\n #{item_params} \n\n\n\n\n\n\n\n\n"
     render noting: true, status: 200
   end
 
