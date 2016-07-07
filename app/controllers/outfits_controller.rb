@@ -9,11 +9,11 @@ class OutfitsController < ApplicationController
 
   def create # strong params?
     puts "\n\n\n\n\n\n\n\n\n\n #{outfit_params} \n\n\n\n\n\n\n\n\n"
-    outfit = Outfit.create(user: current_user)
-    OutfitsItem.create(outfit: outfit, item_id: params[])
-    OutfitsItem.create(outfit: outfit, item_id: params[])
-    OutfitsItem.create(outfit: outfit, item_id: params[])
-    OutfitsItem.create(outfit: outfit, item_id: params[])
+    # outfit = Outfit.create(user: current_user)
+    # OutfitsItem.create(outfit: outfit, item_id: params[])
+    # OutfitsItem.create(outfit: outfit, item_id: params[])
+    # OutfitsItem.create(outfit: outfit, item_id: params[])
+    # OutfitsItem.create(outfit: outfit, item_id: params[])
 
     if outfit.save
       render json: outfit
@@ -42,8 +42,8 @@ class OutfitsController < ApplicationController
   private
 
   def outfit_params
-    params.require(:outfit).permit!
-    # outfit_params.fetch(:outfit, {}).permit!
+    # params.require(:outfit).permit!
+    params.fetch(:outfit, {}).permit!
   end
 
   # def outfits_item_params
