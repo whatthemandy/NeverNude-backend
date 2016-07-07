@@ -8,7 +8,7 @@ class OutfitsController < ApplicationController
   end
 
   def create # strong params?
-    puts "\n\n\n\n\n\n\n\n\n\n #{outfit_params} \n\n\n\n\n\n\n\n\n"
+    puts "\n\n\n\n\n\n\n\n\n\n #{outfit_params.to_h} \n\n\n\n\n\n\n\n\n"
     # outfit = Outfit.create(user: current_user)
     # OutfitsItem.create(outfit: outfit, item_id: params[])
     # OutfitsItem.create(outfit: outfit, item_id: params[])
