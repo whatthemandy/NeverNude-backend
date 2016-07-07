@@ -13,7 +13,7 @@ class ItemsController < ApplicationController
 
   def create
     puts "\n\n\n\n\n\n\n #{item_params.to_h} \n\n\n\n\n\n"
-    @item = Item.new(item_params.to_h)
+    @item = Item.new(item_params)
     if @item.save
       render json: @item
     else
