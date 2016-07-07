@@ -12,7 +12,7 @@ class ItemsController < ApplicationController
   end
 
   def create
-    @item = Item.new.from_json(item_params)
+    @item = Item.new(item_params)
     if @item.save
       render json: @item
     else
