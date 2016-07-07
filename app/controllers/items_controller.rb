@@ -30,7 +30,8 @@ class ItemsController < ApplicationController
   # end
 
   def destroy
-    item = Item.find(params[:section][:item])
+    section = Section.find(params[:section_id])
+    item = section.items.find(params[:id])
     item.destroy
     item.delete_associated_outfits_and_tags
     render nothing: true, status: 200
