@@ -12,7 +12,7 @@ class ItemsController < ApplicationController
   end
 
   def create
-    puts "\n\n\n\n\n\n\n #{item_params.to_h.user_id} \n\n\n\n\n\n"
+    puts "\n\n\n\n\n\n\n #{item_params.to_h[:user_id]} \n\n\n\n\n\n"
 
     # @item = Item.new(item_params)
     if @item.save
