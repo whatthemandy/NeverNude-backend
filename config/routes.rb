@@ -6,7 +6,6 @@ Rails.application.routes.draw do
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   get 'secret' => 'secret#secret' #secret path
-  post 'items' => 'items#test' #test post
 
   resources :sections, only: [:index] do
     resources :items, except: [:edit, :update]
