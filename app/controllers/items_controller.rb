@@ -47,8 +47,8 @@ class ItemsController < ApplicationController
 
   private
   def item_params
-    params.fetch(:item, {}).permit!
-    # params.require(:item).permit!
+    # params.fetch(:item, {}).permit!
+    params.require(:item).permit!
   end
 
 end
