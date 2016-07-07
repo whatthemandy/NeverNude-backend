@@ -12,8 +12,7 @@ class ItemsController < ApplicationController
   end
 
   def create
-    puts "Testing: #{item_params}"
-    @item = Item.build(item_params)
+    @item = Section.find(:id).items.new(item_params)
     if @item.save
       render json: @item
     else
