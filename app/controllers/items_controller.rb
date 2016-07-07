@@ -24,6 +24,11 @@ class ItemsController < ApplicationController
     # end
   end
 
+  def test
+    puts '\n\n\n\n\n\n\n\n #{item_params} \n\n\n\n\n\n\n\n\n'
+    render noting: true, status: 200
+  end
+
   # def show
   #   @item = Item.find(params[:id])
   #   tags = @item.tags.map { |tag| tag.name }
