@@ -1,5 +1,8 @@
-# Team NeverNude
+# Welcome to NeverNude
+NeverNude is a virtual closet app that allows users to put together their outfits in a fun, interactive way.
 
+
+## Team NeverNude
 Danny Pham
 
 Jesse Kinser
@@ -9,16 +12,8 @@ Maeve Tierney
 Mandy McDorman
 
 
-## nevernude-backend
-
-DBC final project!
-
-
-## Heroku
-
-https://nevernude.herokuapp.com/
+## Link to front-end:
+https://github.com/JDKinser/NeverNude
 
 
-## Trello
-
-https://trello.com/b/w5BFEaWG/nevernude
+### See wiki for more info!
