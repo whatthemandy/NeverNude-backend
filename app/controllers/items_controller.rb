@@ -12,8 +12,7 @@ class ItemsController < ApplicationController
   end
 
   def create
-    puts item_params + "############################################\n\n\n\n\n\n\n\n"
-    @item = Item.new(item_params)
+    @item = Section.find(:id).items.new(item_params)
     if @item.save
       render json: @item
     else
