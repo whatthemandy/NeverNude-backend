@@ -12,9 +12,8 @@ class ItemsController < ApplicationController
   end
 
   def create
-    puts "\n\n\n\n\n\n\n #{item_params.to_h[:user_id]} \n\n\n\n\n\n"
     image = StringIO.new(Base64.decode64(item_params.to_h[:image]))
-    @item = Item.new(user_id: item_params.to_h[:user_id], section_id: item_params.to_h[:user_id], image: image)
+    @item = Item.new(user_id: item_params.to_h[:user_id], section_id: item_params.to_h[:section_id], image: image)
 
     # @item = Item.new(item_params)
     if @item.save
