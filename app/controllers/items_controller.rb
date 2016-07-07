@@ -39,7 +39,8 @@ class ItemsController < ApplicationController
 
   private
   def item_params
-    params.require(:item).permit(:user_id, :section_id, :image)
+    params.fetch(:item, {}).permit(:user_id, :section_id, :image)
+    # params.require(:item).permit(:user_id, :section_id, :image)
   end
 
 end
