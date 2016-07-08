@@ -3,12 +3,12 @@ class ItemsController < ApplicationController
   def index
     @section = Section.find(params[:section_id])
     @items = @section.items
-    thumb_image_urls = @items.map { |item| item.image.url(:thumb) }
-    sm_image_urls = @items.map { |item| item.image.url(:small) }
+    # thumb_image_urls = @items.map { |item| item.image.url(:thumb) }
+    # sm_image_urls = @items.map { |item| item.image.url(:small) }
     med_image_urls = @items.map { |item| item.image.url(:medium) }
     lrg_image_urls = @items.map { |item| item.image.url(:large) }
     # response.headers['image_path'] = "#{@items[0].image.url(:thumb)}"
-    render json: { items: @items, thumb_image_urls: thumb_image_urls, sm_image_urls: sm_image_urls, med_image_urls: med_image_urls, lrg_image_urls: lrg_image_urls }
+    render json: { items: @items, med_image_urls: med_image_urls, lrg_image_urls: lrg_image_urls }
   end
 
   def create
