@@ -3,18 +3,20 @@ class ItemsController < ApplicationController
   def index
     @section = Section.find(params[:section_id])
     @items = @section.items
-    thumb_image_urls = @items.map { |item| item.image.url(:thumb) }
-    sm_image_urls = @items.map { |item| item.image.url(:small) }
+    # thumb_image_urls = @items.map { |item| item.image.url(:thumb) }
+    # sm_image_urls = @items.map { |item| item.image.url(:small) }
     med_image_urls = @items.map { |item| item.image.url(:medium) }
     lrg_image_urls = @items.map { |item| item.image.url(:large) }
     # response.headers['image_path'] = "#{@items[0].image.url(:thumb)}"
-    render json: { items: @items, thumb_image_urls: thumb_image_urls, sm_image_urls: sm_image_urls, med_image_urls: med_image_urls, lrg_image_urls: lrg_image_urls }
+    render json: { items: @items, med_image_urls: med_image_urls, lrg_image_urls: lrg_image_urls }
   end
 
   def create
-    @item = Item.new(item_params)
+    image = StringIO.new(Base64.decode64(item_params.to_h[:image]))
+    @item = Item.new(user_id: item_params.to_h[:user_id], section_id: item_params.to_h[:section_id], image: image)
+    # @item = Item.new(item_params)
     if @item.save
-      render json: @item
+      render json: @item, status: 201
     else
       @item.errors.full_messages << "Please try again."
       render json: @item.errors.full_messages, status: 422
@@ -39,7 +41,8 @@ class ItemsController < ApplicationController
 
   private
   def item_params
-    params.require(:item).permit(:user_id, :section_id, :image)
+    params.fetch(:item, {}).permit!
+    # params.require(:item).permit!
   end
 
 end

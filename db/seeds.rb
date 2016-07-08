@@ -26,10 +26,13 @@ Item.create(user: pocket_gopher, section: accessory, image: open('http://i.imgur
 Item.create(user: pocket_gopher, section: accessory, image: open('http://i.imgur.com/sa3Z4Gj.jpg'))
 Item.create(user: pocket_gopher, section: accessory, image: open('http://i.imgur.com/3H48uyC.jpg'))
 Item.create(user: pocket_gopher, section: accessory, image: open('http://i.imgur.com/kFN8VOj.jpg'))
+Item.create(user: pocket_gopher, section: accessory, image: open('http://i.imgur.com/NV6NM4i.jpg'))
 
 b = Item.create(user: pocket_gopher, section: top, image: open('http://i.imgur.com/vNr8nYQ.jpg'))
 f = Item.create(user: pocket_gopher, section: top, image: open('http://i.imgur.com/J7iRKLy.jpg'))
 j = Item.create(user: pocket_gopher, section: top, image: open('http://i.imgur.com/6czOgTo.jpg'))
+Item.create(user: pocket_gopher, section: top, image: open('http://i.imgur.com/kwTYoqt.jpg'))
+Item.create(user: pocket_gopher, section: top, image: open('http://i.imgur.com/PPzKR9w.jpg'))
 Item.create(user: pocket_gopher, section: top, image: open('http://i.imgur.com/eNGWJVR.jpg'))
 Item.create(user: pocket_gopher, section: top, image: open('http://i.imgur.com/xpJmh1y.jpg'))
 Item.create(user: pocket_gopher, section: top, image: open('http://i.imgur.com/dQvKetx.jpg'))
@@ -41,10 +44,11 @@ Item.create(user: pocket_gopher, section: top, image: open('http://i.imgur.com/h
 Item.create(user: pocket_gopher, section: top, image: open('http://i.imgur.com/gRbDoPn.jpg'))
 Item.create(user: pocket_gopher, section: top, image: open('http://i.imgur.com/bbtB8x5.jpg'))
 Item.create(user: pocket_gopher, section: top, image: open('http://i.imgur.com/OcThnj7.jpg'))
-Item.create(user: pocket_gopher, section: top, image: open('http://i.imgur.com/kwTYoqt.jpg'))
 Item.create(user: pocket_gopher, section: top, image: open('http://i.imgur.com/eNM0YzN.jpg'))
 Item.create(user: pocket_gopher, section: top, image: open('http://i.imgur.com/wYxC6F0.jpg'))
 Item.create(user: pocket_gopher, section: top, image: open('http://i.imgur.com/YC7vltk.jpg'))
+Item.create(user: pocket_gopher, section: top, image: open('http://i.imgur.com/vJatx0f.jpg'))
+Item.create(user: pocket_gopher, section: top, image: open('http://i.imgur.com/NV6NM4i.jpg'))
 
 c = Item.create(user: pocket_gopher, section: bottom, image: open('http://i.imgur.com/r8Stusr.jpg'))
 g = Item.create(user: pocket_gopher, section: bottom, image: open('http://i.imgur.com/SXn0pnV.jpg'))
@@ -55,6 +59,7 @@ Item.create(user: pocket_gopher, section: bottom, image: open('http://i.imgur.co
 Item.create(user: pocket_gopher, section: bottom, image: open('http://i.imgur.com/ays9ULE.jpg'))
 Item.create(user: pocket_gopher, section: bottom, image: open('http://i.imgur.com/rn7GtuV.jpg'))
 Item.create(user: pocket_gopher, section: bottom, image: open('http://i.imgur.com/21mR9Xy.jpg'))
+Item.create(user: pocket_gopher, section: bottom, image: open('http://i.imgur.com/NV6NM4i.jpg'))
 
 d = Item.create(user: pocket_gopher, section: footwear, image: open('http://i.imgur.com/fwKDKbN.jpg'))
 h = Item.create(user: pocket_gopher, section: footwear, image: open('http://i.imgur.com/OdgXVoj.jpg'))
@@ -66,6 +71,7 @@ Item.create(user: pocket_gopher, section: footwear, image: open('http://i.imgur.
 Item.create(user: pocket_gopher, section: footwear, image: open('http://i.imgur.com/taycIys.jpg'))
 Item.create(user: pocket_gopher, section: footwear, image: open('http://i.imgur.com/doYera3.jpg?1'))
 Item.create(user: pocket_gopher, section: footwear, image: open('http://i.imgur.com/FWk2Vpu.jpg'))
+Item.create(user: pocket_gopher, section: footwear, image: open('http://i.imgur.com/NV6NM4i.jpg'))
 
 # Create outfits
 outfit_one = Outfit.create(user: pocket_gopher)
@@ -119,10 +125,10 @@ n = Item.create(user: test_user, section: top, image: open('http://i.imgur.com/d
 o = Item.create(user: test_user, section: bottom, image: open('http://i.imgur.com/SXn0pnV.jpg'))
 p = Item.create(user: test_user, section: footwear, image: open('http://i.imgur.com/Nut5tUl.jpg'))
 
-q = Item.create(user: test_user, section: accessory, image: open('http://i.imgur.com/okCyybc.jpg'))
-r = Item.create(user: test_user, section: top, image: open('http://i.imgur.com/hmHrTy7.jpg'))
-s = Item.create(user: test_user, section: bottom, image: open('http://i.imgur.com/rn7GtuV.jpg'))
-t = Item.create(user: test_user, section: footwear, image: open('http://i.imgur.com/1mJSbi6.jpg'))
+q = Item.create(user: test_user, section: accessory, image: open('http://i.imgur.com/5eoMdOn.jpg'))
+r = Item.create(user: test_user, section: top, image: open('http://i.imgur.com/vJatx0f.jpg'))
+s = Item.create(user: test_user, section: bottom, image: open('http://i.imgur.com/AoV2tv0.jpg'))
+t = Item.create(user: test_user, section: footwear, image: open('http://i.imgur.com/uVQqLOV.jpg'))
 
 OutfitsItem.create(outfit: outfit_four, item: m)
 OutfitsItem.create(outfit: outfit_four, item: n)

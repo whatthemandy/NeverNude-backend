@@ -8,15 +8,14 @@ class OutfitsController < ApplicationController
   end
 
   def create # strong params?
-    # outfit = Outfit.new(outfit_params)
-    outfit = Outfit.create(user: current_user)
-    # OutfitsItem.create(outfit: outfit, item_id: params[])
-    # OutfitsItem.create(outfit: outfit, item_id: params[])
-    # OutfitsItem.create(outfit: outfit, item_id: params[])
-    # OutfitsItem.create(outfit: outfit, item_id: params[])
+    outfit = Outfit.new(user_id: outfit_params.to_h[:user_id])
+    OutfitsItem.create(outfit: outfit, item_id: outfit_params.to_h[:accer_id])
+    OutfitsItem.create(outfit: outfit, item_id: outfit_params.to_h[:tops_id])
+    OutfitsItem.create(outfit: outfit, item_id: outfit_params.to_h[:bottoms_id])
+    OutfitsItem.create(outfit: outfit, item_id: outfit_params.to_h[:foot_id])
 
     if outfit.save
-      render json: outfit
+      render json: outfit, status: 201
     else
       outfit.errors.full_messages << "Please try again."
       render json: outfit.errors.full_messages, status: 422
@@ -42,11 +41,12 @@ class OutfitsController < ApplicationController
   private
 
   def outfit_params
-    params.require(:outfit).permit(:user_id)
+    # params.require(:outfit).permit!
+    params.fetch(:outfit, {}).permit!
   end
 
-  def outfits_item_params
-    params.require(:outfits_item).permit(:outfit_id, :item_id)
-  end
+  # def outfits_item_params
+    # params.require(:outfits_item).permit(:outfit_id, :item_id)
+  # end
 
 end
