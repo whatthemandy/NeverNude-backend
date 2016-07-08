@@ -1,8 +1,10 @@
 class TagsController < ApplicationController
 
   def index
-    @tags = Tag.all
-    render json: @tags
+    tag = Tag.all.map{|tag| tag.name}
+    tagged_items = []
+    Tag.all.each{|tag| tagged_items << tag.items.map{|item| [item.id, item.image.url(:large)]}}
+    render json: {tag: tag, tagged_items: tagged_items}
   end
 
   def create # strong params?
