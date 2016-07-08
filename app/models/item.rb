@@ -9,8 +9,8 @@ class Item < ApplicationRecord
 
   has_attached_file :image,
     :styles => {
-      :thumb => "100x75#",
-      :small  => "200x150>",
+      # :thumb => "100x75#",
+      # :small  => "200x150>",
       :medium => "300x225",
       :large => "400x300" },
     storage: :s3,
