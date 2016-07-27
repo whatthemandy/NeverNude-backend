@@ -9,7 +9,10 @@ class ItemsController < ApplicationController
     @items.all.each { |item| tags << item.tags }
     med_image_urls = @items.map { |item| item.image.url(:medium) }
     lrg_image_urls = @items.map { |item| item.image.url(:large) }
-    render json: { items: @items, med_image_urls: med_image_urls, lrg_image_urls: lrg_image_urls, tags: tags }
+    render json: { items: @items,
+                   med_image_urls: med_image_urls,
+                   lrg_image_urls: lrg_image_urls,
+                   tags: tags }
   end
 
   def create
@@ -45,6 +48,8 @@ class ItemsController < ApplicationController
 
   def create_new_item
     image = StringIO.new(Base64.decode64(item_params.to_h[:image]))
-    @item = Item.new(user_id: item_params.to_h[:user_id], section_id: item_params.to_h[:section_id], image: image)
+    @item = Item.new(user_id: item_params.to_h[:user_id],
+                     section_id: item_params.to_h[:section_id],
+                     image: image)
   end
 end
