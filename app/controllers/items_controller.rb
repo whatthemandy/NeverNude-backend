@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+  before_action :authenticate_user!
   before_action :fetch_current_section, only: [:index]
   before_action :fetch_items, only: [:index]
   before_action :create_new_item, only: [:create]
@@ -21,7 +22,7 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    section = Section .find(params[:section_id])
+    section = Section.find(params[:section_id])
     item = section.items.find(params[:id])
     item.destroy
     item.delete_associated_outfits_and_tags
@@ -31,7 +32,7 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.fetch(:item, {}).permit!
+    params.fetch(:item, {}).permit(:user_id, :section_id, :image)
   end
 
   def fetch_current_section

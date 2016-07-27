@@ -1,4 +1,5 @@
 class OutfitsController < ApplicationController
+  before_action :authenticate_user!
   before_action :create_new_outfit_with_items, only: [:create]
 
   def index
@@ -36,7 +37,7 @@ class OutfitsController < ApplicationController
   private
 
   def outfit_params
-    params.fetch(:outfit, {}).permit!
+    params.fetch(:outfit, {}).permit(:user_id)
   end
 
   def create_new_outfit_with_items
