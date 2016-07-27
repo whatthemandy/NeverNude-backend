@@ -13,5 +13,4 @@ class ApplicationRecord < ActiveRecord::Base
     self.delete_associated_outfits_items
     self.delete_associated_tags_items
   end
-
 end

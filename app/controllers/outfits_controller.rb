@@ -1,23 +1,18 @@
 class OutfitsController < ApplicationController
+  before_action :create_new_outfit_with_items, only: [:create]
 
   def index
     @outfits = Outfit.all
-    outfits_items = @outfits.map { |outfit| outfit.outfits_items }
-    image_urls = outfits_items.map { |outfit| outfit.map {|outfit_item| outfit_item.item.image.url } }
+    outfits_items = @outfits.map(&:outfits_items)
+    image_urls = outfits_items.map { |outfit| outfit.map { |outfit_item| outfit_item.item.image.url } }
     render json: { outfits: @outfits, outfits_items: outfits_items, image_urls: image_urls }
   end
 
-  def create # strong params?
-    outfit = Outfit.new(user_id: outfit_params.to_h[:user_id])
-    OutfitsItem.create(outfit: outfit, item_id: outfit_params.to_h[:accer_id])
-    OutfitsItem.create(outfit: outfit, item_id: outfit_params.to_h[:tops_id])
-    OutfitsItem.create(outfit: outfit, item_id: outfit_params.to_h[:bottoms_id])
-    OutfitsItem.create(outfit: outfit, item_id: outfit_params.to_h[:foot_id])
-
+  def create
     if outfit.save
       render json: outfit, status: 201
     else
-      outfit.errors.full_messages << "Please try again."
+      outfit.errors.full_messages << 'Please try again.'
       render json: outfit.errors.full_messages, status: 422
     end
   end
@@ -25,7 +20,7 @@ class OutfitsController < ApplicationController
   def show
     @outfit = Outfit.find(params[:id])
     outfits_item = @outfit.outfits_items
-    image_urls = outfits_item.map {|outfit_item| outfit_item.item.image.url }
+    image_urls = outfits_item.map { |outfit_item| outfit_item.item.image.url }
     render json: { outfit: @outfit, outfits_item: outfits_item, image_urls: image_urls }
   end
 
@@ -41,12 +36,14 @@ class OutfitsController < ApplicationController
   private
 
   def outfit_params
-    # params.require(:outfit).permit!
     params.fetch(:outfit, {}).permit!
   end
 
-  # def outfits_item_params
-    # params.require(:outfits_item).permit(:outfit_id, :item_id)
-  # end
-
+  def create_new_outfit_with_items
+    outfit = Outfit.new(user_id: outfit_params.to_h[:user_id])
+    OutfitsItem.create(outfit: outfit, item_id: outfit_params.to_h[:accer_id])
+    OutfitsItem.create(outfit: outfit, item_id: outfit_params.to_h[:tops_id])
+    OutfitsItem.create(outfit: outfit, item_id: outfit_params.to_h[:bottoms_id])
+    OutfitsItem.create(outfit: outfit, item_id: outfit_params.to_h[:foot_id])
+  end
 end
