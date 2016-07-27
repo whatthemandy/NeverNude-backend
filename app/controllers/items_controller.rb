@@ -31,7 +31,7 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.fetch(:item, {}).permit!
+    params.fetch(:item, {}).permit(:user_id, :section_id, :image)
   end
 
   def fetch_current_section
