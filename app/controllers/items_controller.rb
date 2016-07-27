@@ -40,7 +40,7 @@ class ItemsController < ApplicationController
   end
 
   def fetch_items
-    @items = @section.items
+    @items = @section.items.where(["user_id = #{current_user.id}"])
   end
 
   def create_new_item
