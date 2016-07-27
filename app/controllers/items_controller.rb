@@ -21,7 +21,7 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    section = Section .find(params[:section_id])
+    section = Section.find(params[:section_id])
     item = section.items.find(params[:id])
     item.destroy
     item.delete_associated_outfits_and_tags
