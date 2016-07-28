@@ -1,5 +1,5 @@
 class OutfitsController < ApplicationController
-  before_action :authenticate_user!
+  # before_action :authenticate_user!
   before_action :create_new_outfit_with_items, only: [:create]
 
   def index

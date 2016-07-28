@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :authenticate_user!
+  # before_action :authenticate_user!
   before_action :fetch_current_section, only: [:index]
   before_action :fetch_items, only: [:index]
   before_action :create_new_item, only: [:create]
