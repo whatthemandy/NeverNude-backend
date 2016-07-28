@@ -10,11 +10,11 @@ class OutfitsController < ApplicationController
   end
 
   def create
-    if outfit.save
-      render json: outfit, status: 201
+    if @outfit.save
+      render json: @outfit, status: 201
     else
-      outfit.errors.full_messages << 'Please try again.'
-      render json: outfit.errors.full_messages, status: 422
+      @outfit.errors.full_messages << 'Please try again.'
+      render json: @outfit.errors.full_messages, status: 422
     end
   end
 
@@ -41,10 +41,10 @@ class OutfitsController < ApplicationController
   end
 
   def create_new_outfit_with_items
-    outfit = Outfit.new(user_id: outfit_params.to_h[:user_id])
-    OutfitsItem.create(outfit: outfit, item_id: outfit_params.to_h[:accer_id])
-    OutfitsItem.create(outfit: outfit, item_id: outfit_params.to_h[:tops_id])
-    OutfitsItem.create(outfit: outfit, item_id: outfit_params.to_h[:bottoms_id])
-    OutfitsItem.create(outfit: outfit, item_id: outfit_params.to_h[:foot_id])
+    @outfit = Outfit.new(user_id: outfit_params.to_h[:user_id])
+    OutfitsItem.create(outfit: @outfit, item_id: outfit_params.to_h[:accer_id])
+    OutfitsItem.create(outfit: @outfit, item_id: outfit_params.to_h[:tops_id])
+    OutfitsItem.create(outfit: @outfit, item_id: outfit_params.to_h[:bottoms_id])
+    OutfitsItem.create(outfit: @outfit, item_id: outfit_params.to_h[:foot_id])
   end
 end
